@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recovery Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Recovery Tool</h1>
+        <div class="form-group">
+            <label for="drive">Select Drive</label>
+            <input type="text" id="drive" name="drive" placeholder="Drive path...">
+            <button onclick="browseDrive()">Browse</button>
+        </div>
+        <div class="form-group">
+            <label for="saveDir">Select Save Directory</label>
+            <input type="text" id="saveDir" name="saveDir" placeholder="Save directory...">
+            <button onclick="browseSave()">Browse</button>
+        </div>
+        <div class="form-group">
+            <label for="fileType">Select File Type</label>
+            <select id="fileType" name="fileType">
+                <option value=".txt">.txt</option>
+                <option value=".docx">.docx</option>
+                <option value=".xlsx">.xlsx</option>
+                <option value=".pptx">.pptx</option>
+                <option value=".pdf">.pdf</option>
+                <option value=".jpg">.jpg</option>
+                <option value=".png">.png</option>
+            </select>
+        </div>
+        <button onclick="scanFiles()">Scan for Deleted Files</button>
+        <div class="progress-container">
+            <label>Scanning Progress</label>
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <div id="status"></div>
+        <div class="form-group">
+            <label>Deleted Files</label>
+            <select id="fileList" multiple></select>
+        </div>
+        <button onclick="recoverFiles()">Recover Selected Files</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
